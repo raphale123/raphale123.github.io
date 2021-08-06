@@ -65,24 +65,24 @@
 <p>前言:记录免杀的玄幻</p>
 <p>0x01</p>
 <p>这是网上找的 shellcode 最简单的加载器</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps1.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps1.jpg" alt="img"> </p>
 <p>简单的意思是 申请一段虚拟地址，调用 执行。</p>
 <p>编译一下看看查杀情况 go build -ldflags=”-w -s” 这里没有去掉黑框</p>
 <p>只有360不杀</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps2.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps2.jpg" alt="img"> </p>
 <p>运行起来</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps3.jpg" alt="img"> </p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps4.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps3.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps4.jpg" alt="img"> </p>
 <p>0x02 目前为止360已经死掉了,正常编译什么都没做，360第一个over。这里不用异或了，对火绒和win10没啥用，直接死掉了。尝试和其他正常源码合在一起</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps5.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps5.jpg" alt="img"> </p>
 <p>全都死翘翘了。</p>
 <p>0x03 加个base64编码试试看，直接对shellcode 进行编码</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps6.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps6.jpg" alt="img"> </p>
 <p>火绒直接死掉了，很玄幻。简单的base64居然直接过了火绒</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps7.jpg" alt="img"> </p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps8.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps7.jpg" alt="img"> </p>
+<p><img src="http://img.xxxxxx.one/cs1/wps8.jpg" alt="img"> </p>
 <p>0x04试下win10的 也是一样全过= =</p>
-<p><img src="file:///C:\Users\R\AppData\Local\Temp\ksohtml22044\wps9.jpg" alt="img"></p>
+<p><img src="http://img.xxxxxx.one/cs1/wps9.jpg" alt="img"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">

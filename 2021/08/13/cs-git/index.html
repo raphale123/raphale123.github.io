@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>CS二开学习记录☞反编译</title>
+    <title>cs系列免杀☞github_poc</title>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
@@ -31,19 +31,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">CS二开学习记录☞反编译</h1>
+                <h1 class="header-subtitle">cs系列免杀☞github_poc</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2021-08-12
+                            <i class="iconfont icon-time"></i> 发表时间：2021-08-13
                         </span>
                         
-                            <span id="/2021/08/12/Cs-Two/" class="leancloud_visitors" data-flag-title="CS二开学习记录☞反编译">
+                            <span id="/2021/08/13/cs-git/" class="leancloud_visitors" data-flag-title="cs系列免杀☞github_poc">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/12/Cs-Two/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/13/cs-git/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -57,37 +57,23 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <p>#前言记录CS二开学习记录☞反编译</p>
-<p>0x00</p>
-<p>​        工具：jdk8</p>
-<p>​        IDE:IntelliJ IDEA 2020p破解版</p>
-<p>0x01  这里要注意ide里的jdk要跟安装java的版本一致，不然不行。</p>
-<p>​        右键ide文件路径找到java-decompiler.jar</p>
-<p>​            <img src="/img/cs_two_1/image-20210812134616943.png" alt="img"></p>
-<p>​        桌面创建一个空的文件夹，复制进去，并创建一个cs_bin和cs_src，把要反编译二开的cobaltstrike.jar放入cs_bin文件里面</p>
-<p>​                <img src="/img/cs_two_1/image-20210812134803140.png" alt="img"></p>
-<p>0x02   打开powershell 进入创建的文件夹路径 运行 </p>
-<p>​        java -cp java-decompiler.jar org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompilr -dgs=true .\cs_bin\cobaltstrike.jar  .\cs_src </p>
-<p>​        其中org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompilr 是来自java-decompiler.jar 包里路径类    后面是跟随的参数和要反编译的包以及反编译最后的结果路径</p>
-<p>​            <img src="/img/cs_two_1/image-20210812135330389.png" alt="img"></p>
-<p>​        反编译之后，里面的jar包都以及是编程了java代码,到这里反编译已经结束了<img src="/img/cs_two_1/image-20210812135507824.png" alt="img"></p>
-<p>0x03  尝试编译回jar包，首先打开ide创建一个工程先如图</p>
-<p>​            <img src="/img/cs_two_1/image-20210812140545394.png" alt="img"></p>
-<p>​            <img src="/img/cs_two_1/image-20210812140753032.png" alt="img"></p>
-<p>0x04  在工程目录下 创建两个空文件夹 decompiled_src 和 lib</p>
-<p>​        把反编译好的 cs java 包 解压到decompiled_src文件夹下面,把未编译好的cs java包放到lib文件夹下面 。</p>
-<p>​        对项目进行工程设置File-&gt;Project Structure. </p>
-<p>选择Modules-&gt;Dependencies添加一个JARs or directories 选择工程lib文件夹下的cs java包,勾选按Apply</p>
-<p>​        <img src="/img/cs_two_1/image-20210812142359595.png" alt="img"></p>
-<p>选择Artifacts-&gt;添加一个java包-&gt;添加一个 From modules with……… 填入Main Class. 这里的内容在cs包里的 META-INF-&gt;MANIFEST.MF文件里面</p>
-<p>​            <img src="/img/cs_two_1/image-20210812142938715.png" alt="img"></p>
-<p>0x05 设置好工程 对内容进行简单添加，验证编译成功</p>
-<p>​        decompiled_src-&gt;aggressor选择Aggressor.java右键Refactor-&gt;Copy File.. 复制到工程里的src文件里，这里要文件以及文件夹的名字要保持一致</p>
-<p>​                <img src="/img/cs_two_1/image-20210812144444257.png" alt="img"></p>
-<p>然后回自动复制到src文件夹里面并且会自动打开文件，在文件加入一个消息弹框并进行编译 Build-&gt;Build Artifact-&gt;Build开始自动编译</p>
-<p>​                <img src="/img/cs_two_1/image-20210812144829609.png" alt="img"></p>
-<p>0x06  运行编译好的Cs jar 包</p>
-<p>​                <img src="/img/cs_two_1/image-20210812145353553.png" alt="img"></p>
+        <p>0x00</p>
+<p>​    github上刚出没多久的一种shllcode注入免杀的poc,学习下思路</p>
+<p>​    github连接地址 <a target="_blank" rel="noopener" href="https://github.com/ORCA666/EarlyBird">https://github.com/ORCA666/EarlyBird</a></p>
+<p>0x01 根据作者提示 先用把shellcode放入py脚本然后再把结果放入main.cpp</p>
+<p><img src="/img/git1/image-20210813183327997.png" alt="img"></p>
+<p>看起来是先用ord()函数十进制然后进行XOR异或 进行第一步处理</p>
+<p><img src="/img/git1/image-20210813183640552.png" alt="img"></p>
+<p>如上图getchar()；在实际运用中得删掉，不然运行起来需要你输入一个字符，哪怕一个回车键。</p>
+<p><img src="/img/git1/image-20210813184358494.png" alt="img"></p>
+<p>实际上还是运用了powershell去执行这个shellcode</p>
+<p>0x02 我用的是vs2019,把debug摸索改成release模式直接生成一个exe.放入杀毒网<a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/home/upload">https://www.virustotal.com/gui/home/upload</a>   看看 </p>
+<p><img src="/img/git1/image-20210813184112861.png" alt="img"></p>
+<p>如图除了以上没怎么见过的两个，其他全免 常见的卡巴 win10 迈克菲等都过了。</p>
+<p>0x03 虚拟机运行，因为我之前没又去掉getchar();所以需要我按回车键才可以继续运行。</p>
+<p><img src="/img/git1/image-20210813184620899.png" alt="img"></p>
+<p><img src="/img/git1/image-20210813184639023.png" alt="img"></p>
+<p>最后小提示：powershell对于国内杀软来说，可能会拦截，可能不回拦截，但不会报毒。就好像今天你的主管问你为啥穿了不一样的鞋子，只是单纯拦截问问而已。</p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -97,7 +83,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：By Raphale
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2021/08/12/Cs-Two/" target="_blank">CS二开学习记录☞反编译</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/08/13/cs-git/" target="_blank">cs系列免杀☞github_poc</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -114,18 +100,15 @@
             <div class="category">
                 分类：
                 
-                    <a href="/categories/CS%E4%BA%8C%E5%BC%80%E8%AE%B0%E5%BD%95/">CS二开记录</a>
+                    <a href="/categories/Cs%E7%B3%BB%E5%88%97%E5%85%8D%E6%9D%80/">Cs系列免杀</a>
                 
             </div>
         
         
         <div class="article-prev-next">
             
-                <a href="/2021/08/13/cs-git/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/08/13/cs-git/" title="发布于 2021-08-13 06:27">cs系列免杀☞github_poc</a>
-                <br>
             
-            
-                <a href="/2021/08/09/cs2/" class="next-prefix">» </a> 下一篇：    <a href="/2021/08/09/cs2/" title="发布于 2021-08-09 11:03">cs系列免杀 二</a>
+                <a href="/2021/08/12/Cs-Two/" class="next-prefix">» </a> 下一篇：    <a href="/2021/08/12/Cs-Two/" title="发布于 2021-08-12 01:37">CS二开学习记录☞反编译</a>
             
         </div>
     </div>

